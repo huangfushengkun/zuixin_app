@@ -20,6 +20,7 @@ Page({
     classic.getLatest((res) => {
       this.setData({
         classic:res
+        
       })
     })
   },
