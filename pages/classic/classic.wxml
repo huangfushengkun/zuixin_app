@@ -1,1 +1,2 @@
-<h-like like="{{classic.like_status}}" count="{{classic.fav_nums}}"></h-like>
+<h-like bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}"></h-like>
+<h-movie img="{{classic.image}}" content="{{classic.content}}"></h-movie>
