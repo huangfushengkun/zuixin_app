@@ -1,6 +1,6 @@
-<view>
-    <h-epsoide index="{{classic.index}}"></h-epsoide>
-    <h-like bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}"></h-like>
+<view class="header">
+    <h-epsoide class="epsoide" index="{{classic.index}}"></h-epsoide>
+    <h-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}"></h-like>
 </view>
 
 <h-movie img="{{classic.image}}" content="{{classic.content}}"></h-movie>
