@@ -23,11 +23,12 @@ Page({
       this.setData({
         classic:res
       })
+      console.log(this.data.classic)
+
     })
   },
 
   onLike:function (event) {
-    console.log(event)
     let behavior = event.detail.behavior
     likeModel.like(behavior,this.data.classic.id,this.data.classic.type)
   },
