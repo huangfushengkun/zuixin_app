@@ -1,0 +1,1 @@
+<h-like like="{{classic.like_status}}" count="{{classic.fav_nums}}"></h-like>

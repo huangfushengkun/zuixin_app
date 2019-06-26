@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/classic/classic"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "槜在心里",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#d54620"
+  },
+  "sitemapLocation": "sitemap.json"
+}
