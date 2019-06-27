@@ -12,7 +12,9 @@ Page({
   data: {
     classic:null,
     latest:true,
-    first:false
+    first:false,
+    likeStatus: false,
+    likeCount:0
   },
 
   /**
@@ -22,7 +24,9 @@ Page({
     // 更新数据
     classicModel.getLatest((res) => {
       this.setData({
-        classic:res
+        classic:res,
+        likeStatus: res.like_status,
+        likeCount:res.fav_nums
       })
       console.log(this.data.classic.title)
       // latestClassic currentClassic
@@ -47,10 +51,20 @@ Page({
     let index = this.data.classic.index
     classicModel.getClassic(index, nextOrPrevious, (res) => {
       // console.log(res)
+      this._getLikeStatus(res.id,res.type)
       this.setData({
         classic:res,
         latest: classicModel.isLatest(res.index),
         first:classicModel.isFirst(res.index)
+      })
+    })
+  },
+
+  _getLikeStatus:function (artID,category) {
+    likeModel.getClassicLikeStatus(artID,category,(res) => {
+      this.setData({
+        likeStatus: res.like_status,
+        likeCount:res.fav_nums
       })
     })
   },
