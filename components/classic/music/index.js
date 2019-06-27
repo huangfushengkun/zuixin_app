@@ -8,6 +8,7 @@ Component({
   behaviors: [classicBeh],  //可以继承多个
 
   properties: {
+    src:String
   },
 
   /**
