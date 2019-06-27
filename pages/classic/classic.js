@@ -10,8 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    test:1,
-    classic:null
+    classic:null,
+    latest:true,
+    first:false
   },
 
   /**
@@ -23,7 +24,7 @@ Page({
       this.setData({
         classic:res
       })
-      console.log(this.data.classic)
+      console.log(this.data.classic.title)
 
     })
   },
@@ -31,6 +32,16 @@ Page({
   onLike:function (event) {
     let behavior = event.detail.behavior
     likeModel.like(behavior,this.data.classic.id,this.data.classic.type)
+  },
+
+
+  onNext: function (event) {
+    console.log(11)
+  },
+
+  onPrevious:function (event) {
+    console.log(22)
+
   },
 
   /**
