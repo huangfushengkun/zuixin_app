@@ -1,21 +1,19 @@
-// components/classic/music/index.js
+// components/classic/essay/index.js
 import {classicBeh} from '../classic-beh.js'
-
 Component({
   /**
    * 组件的属性列表
    */
   behaviors: [classicBeh],  //可以继承多个
-
   properties: {
+    
   },
-
+    // behavior 行为
   /**
    * 组件的初始数据
    */
   data: {
-    pauseSrc: 'images/player@waitting.png',
-    playSrc: 'images/player@playing.png'
+
   },
 
   /**
