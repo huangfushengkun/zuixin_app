@@ -4,3 +4,4 @@
 </view>
 
 <h-movie img="{{classic.image}}" content="{{classic.content}}"></h-movie>
+<h-navi></h-navi>
