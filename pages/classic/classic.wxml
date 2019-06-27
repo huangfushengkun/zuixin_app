@@ -5,7 +5,12 @@
         <h-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
     <h-movie hidden="{{classic.type!==100}}" img="{{classic.image}}" content="{{classic.content}}" />
-    <h-music hidden="{{classic.type!==200}}" img="{{classic.image}}" content="{{classic.content}}" />
+    <h-music 
+        hidden="{{classic.type!==200}}" 
+        src="{{classic.url}}" 
+        title="{{classic.title}}"
+        img="{{classic.image}}" 
+        content="{{classic.content}}" />
     <h-essay hidden="{{classic.type!==300}}" img="{{classic.image}}" content="{{classic.content}}" />
     <h-navi bind:left="onNext" bind:right="onPrevious" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" class="navi" />
 </view>

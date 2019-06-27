@@ -8,5 +8,8 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#d54620"
   },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
   "sitemapLocation": "sitemap.json"
 }
