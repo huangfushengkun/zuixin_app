@@ -6,7 +6,6 @@ Component({
    */
   behaviors: [classicBeh],  //可以继承多个
   properties: {
-    
   },
     // behavior 行为
   /**
