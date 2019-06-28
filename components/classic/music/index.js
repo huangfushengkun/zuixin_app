@@ -20,7 +20,7 @@ Component({
   data: {
     playing:false,
     pauseSrc: 'images/player@waitting.png',
-    playSrc: 'images/player@playing.png'
+    playSrc: 'images/player@playing.png',
   },
 
   attached:function (event) {

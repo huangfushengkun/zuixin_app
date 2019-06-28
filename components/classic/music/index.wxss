@@ -30,3 +30,17 @@
     font-size: 36rpx;
     max-width: 550rpx;
 }
+
+.rotation {
+    -webkit-transform: rotate(360deg);
+    animation: rotation 12s linear infinite;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
