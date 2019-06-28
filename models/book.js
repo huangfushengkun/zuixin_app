@@ -2,8 +2,12 @@ import {
     HTTP
 } from '../util/http-p.js'
 
-class BookMode extends HTTP {
+class BookModel extends HTTP {
     getHotList () {
-        return this.request('classic/hot_list')
+        return this.request({
+            url:'book/hot_list'
+        })
     }
 }
+
+export {BookModel}
