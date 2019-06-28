@@ -11,16 +11,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    books:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const hostList = bookModel.getHotList()
-    hostList.then(res => {
-      console.log(res)
+    bookModel.getHotList().then(res => {
+      this.setData({
+        books:res
+      })
+      console.log(this.data.books)
+
     })
   },
 

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "h-book": "/components/book/index"
+
+  }
 }
