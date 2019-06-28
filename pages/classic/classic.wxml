@@ -1,12 +1,12 @@
 
 <view class="container">
     <view class="header">
-        <h-epsoide class="epsoide" index="{{classic.index}}" />
+        <h-episode class="episode" index="{{classic.index}}" />
         <h-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
     <h-movie hidden="{{classic.type!==100}}" img="{{classic.image}}" content="{{classic.content}}" />
     <h-music 
-        hidden="{{classic.type!==200}}" 
+        wx:if="{{classic.type!==200}}" 
         src="{{classic.url}}" 
         title="{{classic.title}}"
         img="{{classic.image}}" 

@@ -4,7 +4,7 @@
     "h-movie": "/components/classic/movie/index",
     "h-music": "/components/classic/music/index",
     "h-essay": "/components/classic/essay/index",
-    "h-epsoide": "/components/epsoide/index",
+    "h-episode": "/components/episode/index",
     "h-navi": "/components/navi/index"
   }
 }
