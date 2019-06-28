@@ -6,7 +6,7 @@
     </view>
     <h-movie hidden="{{classic.type!==100}}" img="{{classic.image}}" content="{{classic.content}}" />
     <h-music 
-        wx:if="{{classic.type!==200}}" 
+        wx:if="{{classic.type==200}}" 
         src="{{classic.url}}" 
         title="{{classic.title}}"
         img="{{classic.image}}" 
