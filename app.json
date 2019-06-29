@@ -2,8 +2,8 @@
   "pages": [
     "pages/book/book",
     "pages/classic/classic",
-    
-    "pages/my/my"
+    "pages/my/my",
+    "pages/book-detail/book-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -16,9 +16,9 @@
   ],
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "selectedColor":"#000000",
-    "backgroundColor":"#ffffff",
-    "color":"#c7c7c7",
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "color": "#c7c7c7",
     "list": [
       {
         "selectedIconPath": "/images/tab/classic@highlight.png",
@@ -33,12 +33,11 @@
         "iconPath": "/images/tab/book.png"
       },
       {
-        "selectedIconPath":"/images/tab/my@highlight.png",
+        "selectedIconPath": "/images/tab/my@highlight.png",
         "pagePath": "pages/my/my",
         "text": "喜欢",
         "iconPath": "/images/tab/my.png"
       }
     ]
   }
-  
 }

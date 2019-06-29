@@ -24,7 +24,7 @@
     justify-content: space-between;
 }
 
-.books-container book-cmp{
+.books-container h-book{
     margin-bottom: 30rpx;
 }
 
