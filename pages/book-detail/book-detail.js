@@ -8,9 +8,12 @@ Page({
 
   /**
    * 页面的初始数据
-   */
+  */
   data: {
-    book:{}
+    comments:[],
+    book:null,
+    likeStatus:false,
+    likeCount:0
   },
 
   /**
@@ -18,6 +21,7 @@ Page({
    */
   onLoad: function (options) {
     const bid = options.bid
+    // const bid = 1
     const detail = bookModel.getDetail(bid)
     const comments = bookModel.getComments(bid)
     const likeStatus = bookModel.getLikeStatus(bid)
@@ -26,19 +30,26 @@ Page({
       this.setData({
         book:res
       })
+      console.log(res)
     })
 
     comments.then(res => {
+      this.setData({
+        comments:res.comments
+      })
+      console.log(res)
 
     })
 
     likeStatus.then( res => {
+      this.setData({
+        likeStatus:res.like_status,
+        likeCount:res.fav_nums
+      })
+      console.log(res)
 
     })
-    
-    console.log(detail)
-    console.log(comments)
-    console.log(likeStatus)
+
   },
 
   /**
