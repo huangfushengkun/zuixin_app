@@ -1,3 +1,17 @@
-<!--pages/book/book.wxml-->
-<!-- <h-book wx:for="{{}}" book="{{books[0]}}"></h-book> -->
-<h-book book="{{books[0]}}"></h-book>
+<!-- pages/book/book.wxml -->
+<view class="container">
+    <view class="header">
+        <view class="box">
+            <image class="seach-img" src="/images/icon/search.png"></image>
+            <text class="seach"></text>
+        </view>
+    </view>
+    <view class="sub-container">
+        <image class="head-img" src="/images/book/quality.png"></image>
+        <view class="books-container">
+            <block wx:for="{{books}}" wx:key="item.id">
+                <h-book book="{{item}}"></h-book>
+            </block>
+        </view>
+    </view>
+</view>

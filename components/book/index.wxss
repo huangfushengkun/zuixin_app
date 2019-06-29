@@ -14,7 +14,7 @@
     border-radius: 2px;
 }
 .discription {
-    width: 100%;
+    width: 216rpx;
     position: absolute;
     bottom: 0;
     background-color: #fff;
@@ -44,5 +44,11 @@
 
 .foot {
     font-size: 20rpx;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.footer {
+    color: #666666;
 }
