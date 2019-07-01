@@ -24,35 +24,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 添加loading
+    wx.showLoading()
     const bid = options.bid
     // const bid = 1
     const detail = bookModel.getDetail(bid)
     const comments = bookModel.getComments(bid)
     const likeStatus = bookModel.getLikeStatus(bid)
 
-    detail.then(res => {
-      this.setData({
-        book:res
-      })
+    Promise.all([detail,comments,likeStatus]).then(res=> {
       // console.log(res)
-    })
-
-    comments.then(res => {
       this.setData({
-        comments:res.comments
+        book:res[0],
+        comments:res[1].comments,
+        likeStatus:res[2].like_status,
+        likeCount:res[2].fav_nums
       })
-      // console.log(res)
-
+      wx.hideLoading()
     })
+    // detail.then(res => {
+    //   this.setData({
+    //     book:res
+    //   })
+    //   // console.log(res)
+    // })
 
-    likeStatus.then( res => {
-      this.setData({
-        likeStatus:res.like_status,
-        likeCount:res.fav_nums
-      })
-      // console.log(res)
+    // comments.then(res => {
+    //   this.setData({
+    //     comments:res.comments
+    //   })
+    //   // console.log(res)
 
-    })
+    // })
+
+    // likeStatus.then( res => {
+    //   this.setData({
+    //     likeStatus:res.like_status,
+    //     likeCount:res.fav_nums
+    //   })
+    //   // console.log(res)
+
+    // })
 
   },
   onLike (event) {
