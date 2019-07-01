@@ -2,8 +2,11 @@
 import {
   BookModel
 } from '../../models/book.js'
+import {
+  LikeModel
+} from '../../models/like.js'
 const bookModel = new BookModel()
-
+const likeModel = new LikeModel()
 Page({
 
   /**
@@ -13,7 +16,8 @@ Page({
     comments:[],
     book:null,
     likeStatus:false,
-    likeCount:0
+    likeCount:0,
+    posting:false
   },
 
   /**
@@ -50,6 +54,22 @@ Page({
 
     })
 
+  },
+  onLike (event) {
+    const like_or_cancel = event.detail.behavior
+    likeModel.like(like_or_cancel,this.data.book.id,400)
+  },
+  // 点击输入框
+  onFakePost (event) {
+    this.setData({
+      posting:true
+    })
+  },
+  // 点击取消按钮
+  onCancel (event) {
+    this.setData({
+      posting:false
+    })
   },
 
   /**

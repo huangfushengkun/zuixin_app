@@ -11,7 +11,7 @@
         <text class="headline">短评</text>
         <view class="comment-container">
             <block wx:for="{{util.limit(comments, 10)}}" wx:key="">
-                <h-tag tag-class="{{index==0?'ex-tag1':index==1?'ex-tag2':''}}" text="{{item.content}}">
+                <h-tag tag-class="{{tool.heightLight(index)}}" text="{{item.content}}">
                     <text class="num" slot="after">{{'+'+item.nums}}</text>
                 </h-tag>
             </block>
@@ -41,3 +41,42 @@
         </view>
     </view>
 </view>
+<view class="post-container" wx:if="{{!posting}}">
+    <view bind:tap="onFakePost" class="post-fake">
+        <text>输入短评</text>
+    </view>
+    <view class="like-container">
+        <h-like bind:like="onLike" class="like"
+        like="{{likeStatus}}" count="{{likeCount}}"></h-like>
+    </view>
+</view>
+<view wx:else class="posting-container">
+    <view class="post-header">
+        <text>仅可点击标签+1</text>
+        <text class="cancel" bind:tap="onCancel">取消</text>
+    </view>
+    <view class="comment-container">
+        <block wx:for="{{util.limit(comments, 3)}}" wx:key="">
+            <h-tag bind:tap="" tag-class="{{tool.heightLight(index)}}" text="{{item.content}}">
+                <text class="num" slot="after">{{'+'+item.nums}}</text>
+            </h-tag>
+        </block>
+    </view>
+    <input type="text" class="post" placeholder="评论最多12个字！"></input>
+</view>
+<h-mask wx:if="{{posting}}"></h-mask>
+
+<wxs module="tool">
+    var heightLight = function(index) {
+        if(index==0) {
+            return 'ex-tag1'
+        }
+        if(index==1) {
+            return 'ex-tag2'
+        }
+        return ''
+    }
+    module.exports = {
+        heightLight:heightLight
+    }
+</wxs>
