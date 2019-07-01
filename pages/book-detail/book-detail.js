@@ -34,14 +34,14 @@ Page({
       this.setData({
         book:res
       })
-      console.log(res)
+      // console.log(res)
     })
 
     comments.then(res => {
       this.setData({
         comments:res.comments
       })
-      console.log(res)
+      // console.log(res)
 
     })
 
@@ -50,7 +50,7 @@ Page({
         likeStatus:res.like_status,
         likeCount:res.fav_nums
       })
-      console.log(res)
+      // console.log(res)
 
     })
 
@@ -69,6 +69,38 @@ Page({
   onCancel (event) {
     this.setData({
       posting:false
+    })
+  },
+  onPost(event) {
+    // 获取子组件传递过来数据
+    const comment = event.detail.text || event.detail.value
+    if(!comment) {
+      return
+    }
+    // console.log(comment)
+    if(comment.length>12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icon:'none'
+      })
+      return
+    }
+
+    bookModel.postComment(this.data.book.id,comment).then(res => {
+      wx.showToast({
+        title: '+1',
+        icon:'none'
+      })
+      this.data.comments.unshift({
+        content:comment,
+        nums:1
+      })
+      this.setData({
+        comments:this.data.comments
+      })
+      this.setData({
+        posting:false
+      })
     })
   },
 

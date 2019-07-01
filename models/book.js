@@ -34,6 +34,18 @@ class BookModel extends HTTP {
       })
     }
 
+    // 提交评论
+    postComment(bid,comment) {
+      return this.request({
+        url: 'book/add/short_comment',
+        method: 'POST',
+        data: {
+          book_id:bid,
+          content:comment
+        }
+      })
+    }
+
 }
 
 export {BookModel}

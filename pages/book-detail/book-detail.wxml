@@ -9,6 +9,7 @@
     </view>
     <view class="sub-container">
         <text class="headline">短评</text>
+        <text class="shadow"wx:if="{{!comments.length}}">快来抢沙发了！</text>
         <view class="comment-container">
             <block wx:for="{{util.limit(comments, 10)}}" wx:key="">
                 <h-tag tag-class="{{tool.heightLight(index)}}" text="{{item.content}}">
@@ -52,17 +53,18 @@
 </view>
 <view wx:else class="posting-container">
     <view class="post-header">
-        <text>仅可点击标签+1</text>
+        <text wx:if="{{comments.length}}">仅可点击标签+1</text>
+        <text wx:else>暂无短评标签</text>
         <text class="cancel" bind:tap="onCancel">取消</text>
     </view>
     <view class="comment-container">
         <block wx:for="{{util.limit(comments, 3)}}" wx:key="">
-            <h-tag bind:tap="" tag-class="{{tool.heightLight(index)}}" text="{{item.content}}">
+            <h-tag bind:tapping="onPost" tag-class="{{tool.heightLight(index)}}" text="{{item.content}}">
                 <text class="num" slot="after">{{'+'+item.nums}}</text>
             </h-tag>
         </block>
     </view>
-    <input type="text" class="post" placeholder="评论最多12个字！"></input>
+    <input bindconfirm="onPost" type="text" class="post" placeholder="评论最多12个字！"></input>
 </view>
 <h-mask wx:if="{{posting}}"></h-mask>
 
