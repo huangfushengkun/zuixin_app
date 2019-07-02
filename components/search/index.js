@@ -1,16 +1,22 @@
 // components/search/index.js
 import {KeywordModel} from '../../models/keyword.js'
 import {BookModel} from '../../models/book.js'
+
+/* 引入行为 */
+import {paginationBev} from '../behaviors/paginationBev.js'
 const keywordsModel = new KeywordModel()
 const bookModel = new BookModel()
 Component({
   /**
    * 组件的属性列表
    */
+  /* 使用行为 */
+  // behaviors:[paginationBev],
+
   properties: {
     more:{
       type:Number,
-      observer:'_load_more'
+      observer:'loadMore'
     }
   },
 
@@ -44,8 +50,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _load_more() {
-      console.log(123)
+    loadMore() {
       const length = this.data.booksArray.length
         //判断 搜索存在  是都还有数据  上一个请求是否完成 
       if(!this.data.value || length ==this.data.bookTotal || !this.data.flage) {
@@ -64,6 +69,8 @@ Component({
           flage:true
         })
         wx.hideLoading()
+      }, () => { //避免死锁
+        this.setData({flage:true})
       })
 
     },
