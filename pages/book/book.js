@@ -12,7 +12,8 @@ Page({
    */
   data: {
     books:[],
-    searching:false
+    searching:false,
+    more:0
   },
 
   /**
@@ -78,7 +79,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // console.log(112)
+    this.setData({
+      more:Math.random()
+    })
   },
 
   /**
