@@ -25,6 +25,11 @@
                 <view class="chunk"></view>
                 <text>热门搜索</text>
             </view>
+            <view class="tags">
+                <block wx:for="{{hotWords}}" wx:key="{{index}}">
+                    <h-tag text="{{item}}" />
+                </block>
+            </view>
         </view>
     </view>
 </view>

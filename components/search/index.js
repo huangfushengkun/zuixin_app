@@ -13,14 +13,23 @@ Component({
    * 组件的初始数据
    */
   data: {
-    historyWords:[]
+    historyWords:[],
+    hotWords:[]
   },
   // 组件初始化时调用
   attached() {
     const historyWords = keywordsModel.getHistory()
+    const hotWords = keywordsModel.getHot()
     this.setData({
       historyWords
     })
+    hotWords.then(res => {
+      console.log(res)
+      this.setData({
+        hotWords:res.hot
+      })
+    })
+    
   },
 
   /**
