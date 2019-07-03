@@ -28,7 +28,7 @@ Page({
         likeStatus: res.like_status,
         likeCount:res.fav_nums
       })
-      console.log(this.data.classic)
+      // console.log(this.data.classic)
       // latestClassic currentClassic
     })
   },
