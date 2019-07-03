@@ -53,9 +53,6 @@ Page({
               })
             }
           })
-        } else {
-          console.log('err')
-
         }
       }
     })
@@ -66,6 +63,10 @@ Page({
   },
   onStudy() {
     console.log('about study')
+  },
+  onPreviewTap () {
+    console.log('books')
+
   },
 
   getUserInfo (event) {
