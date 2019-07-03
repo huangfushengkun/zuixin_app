@@ -1,4 +1,9 @@
 // pages/my/my.js
+
+import {BookModel} from '../../models/book.js'
+import {ClassicModel} from '../../models/classic.js'
+let classicModel = new ClassicModel()
+let bookModel = new BookModel()
 Page({
 
   /**
@@ -6,7 +11,8 @@ Page({
    */
   data: {
     authorized:false,
-    userInfo:null
+    userInfo:null,
+    bookCount:0
   },
 
   /**
@@ -14,6 +20,15 @@ Page({
    */
   onLoad: function (options) {
     this.userAuthorized()
+    this.getMyBookCount()
+  },
+
+  getMyBookCount () {
+    bookModel.getMyBookCount().then( res => {
+      this.setData({
+        bookCount:res.count
+      })
+    })
   },
 
   userAuthorized() {
