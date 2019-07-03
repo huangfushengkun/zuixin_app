@@ -30,7 +30,8 @@ Component({
     bookTotal:0,
     searchBlock:true,
     value:'',
-    flage:true
+    flage:true,
+    notBooks:false
   },
 
   // 组件初始化时调用
@@ -64,6 +65,8 @@ Component({
       wx.showLoading()
 
       bookModel.search(length,this.data.value).then(res => {
+
+        
         this.setData({
           booksArray:[...this.data.booksArray,...res.books],
           flage:true
@@ -84,7 +87,14 @@ Component({
       })
       wx.showLoading()
       const word = event.detail.value  || event.detail.text
+
       bookModel.search(0,word).then(res => {
+        // 判断搜索是否有结果
+        if(!res.books.length) {
+          this.setData({
+            notBooks:true
+          })
+        }
         this.setData({
           booksArray:res.books,
           bookTotal:res.total,
@@ -98,7 +108,8 @@ Component({
     colseSearch (event) {
       this.setData({
         searchBlock:true,
-        value:''
+        value:'',
+        notBooks:false
       })
     }
   }

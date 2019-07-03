@@ -38,4 +38,6 @@
         </block>
     </view>
 
+    <!-- <h-loading></h-loading> -->
+    <text wx:if="{{notBooks}}" class="empty-tip">没有找到您要书籍</text>
 </view>
