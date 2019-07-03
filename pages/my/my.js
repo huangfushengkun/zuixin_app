@@ -12,7 +12,8 @@ Page({
   data: {
     authorized:false,
     userInfo:null,
-    bookCount:0
+    bookCount:0,
+    classics:[]
   },
 
   /**
@@ -21,6 +22,15 @@ Page({
   onLoad: function (options) {
     this.userAuthorized()
     this.getMyBookCount()
+    this.getMyFavor()
+  },
+
+  getMyFavor () {
+    classicModel.getMyFavor(res => {
+      this.setData({
+        classics:res
+      })
+    })
   },
 
   getMyBookCount () {

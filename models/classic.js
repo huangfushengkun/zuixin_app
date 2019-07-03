@@ -12,6 +12,7 @@ class ClassicModel extends HTTP {
         })
     }
 
+
     /* 获取期刊信息 */
     getClassic(index, nextOrPrevious, sCallback) {
         //缓存中查找 or API 写入到缓存中
@@ -41,6 +42,14 @@ class ClassicModel extends HTTP {
     isLatest (index) {
         let latestIndex = this._getLatestIndex()
         return latestIndex == index ? true : false
+    }
+
+    getMyFavor (success) {
+        const params = {
+            url: 'classic/favor',
+            success
+        }
+        this.request(params)
     }
 
     /* 存储index */

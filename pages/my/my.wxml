@@ -25,7 +25,7 @@
         <image class=".headline" src="/images/my/like.png" />
         <view class="preview-container">
             <block wx:for="{{classics}}" wx:key="{{index}}">
-                <previe-cmp bind:tap="onPreviewTap" class="preview" classic="{{item}}" />
+                <h-preview bind:tap="onPreviewTap" class="preview" classic="{{item}}" />
             </block>
         </view>
     </view>
