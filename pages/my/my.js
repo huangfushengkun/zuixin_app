@@ -36,6 +36,13 @@ Page({
     })
   },
 
+  onJumpToAbout () {
+    console.log('about our')
+  },
+  onStudy() {
+    console.log('about study')
+  },
+
   getUserInfo (event) {
 
   },

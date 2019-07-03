@@ -2,7 +2,13 @@
 <view class="container">
     <view class="header">
         <h-episode class="episode" index="{{classic.index}}" />
-        <h-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+        <view class="like-container">
+            <h-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+            <h-button class="share-btn" open-type="share" >
+                <image class="share" slot="img" src="/images/icon/share.png"></image>
+            </h-button>
+        </view>
+        
     </view>
     <h-movie hidden="{{classic.type!==100}}" img="{{classic.image}}" content="{{classic.content}}" />
     <h-music 
